@@ -127,6 +127,16 @@ def generate_frames():
         
         # Summing the displayed cards
         sum_detected_cards = sum(value for _, value in detected_cards)
+
+        num_of_aces = 0
+
+        for _, value in detected_cards:
+             if value == 11:
+                  num_of_aces += 1
+
+        if sum_detected_cards > 21 and num_of_aces > 0:
+             sum_detected_cards = sum_detected_cards - 10 * num_of_aces
+
         cv2.putText(annotated_frame, f'Total Value: {sum_detected_cards}', (annotated_frame.shape[1] - 300, y_offset), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
 
         # Displaying the message about BlackJack or Explosion
