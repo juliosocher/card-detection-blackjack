@@ -3,5 +3,3 @@ opencv-python-headless
 numpy
 ultralytics
 pyyaml
-# System-level dependencies
-apt-get install -y libgl1
